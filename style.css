@@ -1,0 +1,12 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.form_container{
+    width: 50%;
+    height: 500px;
+    display: flex;
+    justify-content: left;
+    margin-left: 30px;
+    padding: 0;
+}
