@@ -2,7 +2,7 @@
 Aplicação básica de agenda eletrônica
 # Para rodar a aplicação:
 # Passo1: 
-instalar dependências: npm i express cors mysql bootstrap sequelize.
+instalar dependências. Para isso digite no terminal: npm i express cors mysql bootstrap sequelize.
 # Passo2:
 inicializar o servidor. Para isso digite no terminal: npm run start.
 # Passo3:
