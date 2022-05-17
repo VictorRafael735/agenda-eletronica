@@ -1,6 +1,9 @@
+//métodos bootstrap
+const dropdownElementList = document.querySelectorAll('.dropdown-toggle');
+const dropdownList = [...dropdownElementList].map(dropdownToggleEl => new bootstrap.Dropdown(dropdownToggleEl));
 
-
-async function inserirContato(){
+//manda contato para o back-end
+async function inserirContato() {
     const nome = document.getElementById('nome').value;
     const sobrenome = document.getElementById('sobrenome').value;
     const celular = document.getElementById('telefone').value;
@@ -13,22 +16,24 @@ async function inserirContato(){
     }
 
     let url = 'http://localhost:3000/contatos'
-    const retorno = await fetch(url,  {
-        method: 'POST', 
+    const retorno = await fetch(url, {
+        method: 'POST',
         headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-    }, body: JSON.stringify(contato)} ).then(response => {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        }, body: JSON.stringify(contato)
+    }).then(response => {
         return response.json();
     }).then(data => {
-        console.log(data)});
+        console.log(data)
+    });
     console.log("Passou")
     console.log(retorno)
-    
-}
 
-async function inserirEvento(){
+}
+//manda um novo evento para o back-end
+async function inserirEvento() {
     const nome_evento = document.getElementById('nome_evento').value;
     const data_evento = document.getElementById('data').value;
     const nome_participante = document.getElementById('participante').value;
@@ -39,21 +44,22 @@ async function inserirEvento(){
     }
 
     let url = 'http://localhost:3000/eventos'
-    const retorno = await fetch(url,  {
-        method: 'POST', 
+    const retorno = await fetch(url, {
+        method: 'POST',
         headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-    }, body: JSON.stringify(evento)} ).then(response => {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        }, body: JSON.stringify(evento)
+    }).then(response => {
         return response.json();
     }).then(data => {
-        console.log(data)});
-    console.log("Passou")
+        console.log(data)
+    });
     console.log(retorno)
 }
-
-async function inserirGrupo(){
+//manda um novo grupo para o back-end
+async function inserirGrupo() {
     const nome_grupo = document.getElementById('nome_grupo').value;
     const nome_participante = document.getElementById('integrante').value;
     const grupo = {
@@ -62,17 +68,18 @@ async function inserirGrupo(){
     }
 
     let url = 'http://localhost:3000/grupos'
-    const retorno = await fetch(url,  {
-        method: 'POST', 
+    const retorno = await fetch(url, {
+        method: 'POST',
         headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-    }, body: JSON.stringify(grupo)} ).then(response => {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        }, body: JSON.stringify(grupo)
+    }).then(response => {
         return response.json();
     }).then(data => {
-        console.log(data)});
-    console.log("Passou")
+        console.log(data)
+    });
     console.log(retorno)
 }
-
+//exibe a lista de contatos cadastrados no back-end
