@@ -1,6 +1,7 @@
 //métodos bootstrap
 const dropdownElementList = document.querySelectorAll('.dropdown-toggle');
 const dropdownList = [...dropdownElementList].map(dropdownToggleEl => new bootstrap.Dropdown(dropdownToggleEl));
+const lista_contatos = document.querySelector('#contatos');
 
 //manda contato para o back-end
 async function inserirContato() {
@@ -14,7 +15,6 @@ async function inserirContato() {
         celular,
         email
     }
-
     let url = 'http://localhost:3000/contatos'
     const retorno = await fetch(url, {
         method: 'POST',
@@ -26,11 +26,12 @@ async function inserirContato() {
     }).then(response => {
         return response.json();
     }).then(data => {
-        console.log(data)
+        console.log(data);
+        alert("Usuário cadastrado");
+        document.location.reload();
+        
     });
-    console.log("Passou")
     console.log(retorno)
-
 }
 //manda um novo evento para o back-end
 async function inserirEvento() {
@@ -82,4 +83,6 @@ async function inserirGrupo() {
     });
     console.log(retorno)
 }
-//exibe a lista de contatos cadastrados no back-end
+
+
+
