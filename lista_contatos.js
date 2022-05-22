@@ -4,6 +4,6 @@ async function exibeListaContatos() {
     
     await fetch(url)
         .then(data => data.json())
-        .then(response => response.map(contato => lista_contatos.innerHTML += (`<li> Nome: ${contato.nome} Sobrenome: ${contato.sobrenome} Telefone: ${contato.celular} Email: ${contato.email}`)))
+        .then(response => response.map(contato => lista_contatos.innerHTML += (`<a href="#" class="list-group-item list-group-item-action bg-dark text-light border-light "> ${contato.nome} </a>`)))
 }
 exibeListaContatos();
