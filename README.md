@@ -1,6 +1,6 @@
 # agenda-eletronica
 
-##Sobre
+## Sobre
 Esta é uma aplicação web desenvolvida por mim, de uma agenda eletrônica na qual possui uma tela de cadastro de contatos, 
 grupos de contatos, e criação de eventos , como teste para uma vaga de desenvolvedor em que participei.
 
@@ -15,4 +15,27 @@ grupos de contatos, e criação de eventos , como teste para uma vaga de desenvo
 
 ### IDE
 * [Visual Studio Code](https://code.visualstudio.com/)
+
+## Como Utilizar
+### Passo 1
+Primeiramente devemos instalar as dependências do projeto. Abra o terminal do Visual Studio Code (ou Powershell no Windows) e digite 'npm i express cors mysql2 sequelize-cli nodemon' e pressione enter.
+
+### Passo 2
+Devemos iniciar o servidor. Para isso abra o terminal do Visual Studio Code (ou Powershell no Windows) e digite 'npm run start'. 
+
+### Passo 3
+Agora devemos iniciar/criar o banco de dados e migrar os modelos presentes no projeto. Para isso abra o terminal do Visual Studio Code (ou Powershell no Windows) e digite 'npx sequelize-cli db:create' e pressione enter. Após, digite 'npx sequelize-cli db:seed:all', e pressione enter. Por fim, digite 'npx sequelize-cli db:migrate", e pressione enter.
+
+### Passo 4
+Abra o arquivo index.html.
+
+## O que foi implementado
+* É possível fazer o cadastro de novos contatos, grupos de contatos e eventos.
+* O usuário pode visualizar sua lista completa de contatos.
+* O usuário pode adicionar contatos aos grupos e eventos criados.
+
+## O que falta implementar
+* Ainda não é possível editar e remover contatos, grupos e eventos, entretanto o back-end da aplicação já está preparado para receber essas implementações.
+* Ainda não existe as telas com a lista de grupos/eventos e seus participantes.
+* Rotina de envio de e-mail para os participantes do evento.
 
