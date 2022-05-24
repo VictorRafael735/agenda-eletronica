@@ -36,7 +36,9 @@ body {
 .form-group {
     color: white;
 }
-
+.btn_delete{
+    display: inline;
+}
 .rodape {
     position: relative;
 }

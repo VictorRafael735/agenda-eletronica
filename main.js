@@ -1,7 +1,6 @@
 //métodos bootstrap
 const dropdownElementList = document.querySelectorAll('.dropdown-toggle');
 const dropdownList = [...dropdownElementList].map(dropdownToggleEl => new bootstrap.Dropdown(dropdownToggleEl));
-const lista_contatos = document.querySelector('#contatos');
 
 //manda contato para o back-end
 async function inserirContato() {
@@ -29,7 +28,7 @@ async function inserirContato() {
         console.log(data);
         alert("Usuário cadastrado");
         document.location.reload();
-        
+
     });
     console.log(retorno)
 }
@@ -83,6 +82,54 @@ async function inserirGrupo() {
     });
     console.log(retorno)
 }
-
-
+//deleta um contato da lista de contatos
+async function deletaContatoLista(id) {
+    let url = 'http://localhost:3000/contatos/'
+    const retorno = await fetch(url + id, {
+        method: 'DELETE',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        }
+    }).then(response => response.json())
+        .then(data => {
+            console.log(data);
+            alert("Usuário deletado");
+            document.location.reload();
+        });
+    console.log(retorno)
+}
+//deleta um contato dos eventos
+async function deletaContatoEvento(id) {
+    let url = 'http://localhost:3000/eventos/'
+    const retorno = await fetch(url + id, {
+        method: 'DELETE',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        }
+    }).then(response => response.json())
+        .then(data => {
+            console.log(data);
+        });
+    console.log(retorno)
+}
+//deleta um contato dos grupos
+async function deletaContatoGrupo(id) {
+    let url = 'http://localhost:3000/grupos/'
+    const retorno = await fetch(url + id, {
+        method: 'DELETE',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        }
+    }).then(response => response.json())
+        .then(data => {
+            console.log(data);
+        });
+    console.log(retorno)
+}
 

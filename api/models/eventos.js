@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.contatos, {
         foreignKey: 'evento_id'
       });
-      this.belongsTo(models.contatos, {
-        foreignKey: 'contato_id'
+      this.hasMany(models.contatos, {
+        foreignKey: 'participante_id'
       });
     }
   Eventos.init({

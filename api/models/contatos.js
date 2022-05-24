@@ -8,11 +8,13 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
 
     this.associate = function(models) {
-      this.hasMany(models.eventos, {
-        foreignKey: 'contato_id'
+      this.belongsToMany(models.eventos, {
+        foreignKey: 'contato_id',
+        through: Ids
       });
-      this.hasMany(models.grupos, {
-        foreignKey: 'participante_id'
+      this.belongsToMany(models.grupos, {
+        foreignKey: 'participante_id',
+        through: Ids
       });
     }
   
