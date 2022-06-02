@@ -31,7 +31,7 @@ Abra o arquivo index.html.
 
 ## O que foi implementado
 * É possível fazer o cadastro de novos contatos, grupos de contatos e eventos.
-* O usuário pode visualizar sua lista completa de contatos.
+* O usuário pode visualizar sua lista completa de contatos, grupos e eventos.
 * O usuário pode adicionar contatos aos grupos e eventos criados.
 * O usuário pode deletar contatos de sua lista de contatos.
 * O usuário pode deletar grupos e eventos criados.
