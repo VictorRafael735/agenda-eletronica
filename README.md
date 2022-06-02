@@ -34,9 +34,10 @@ Abra o arquivo index.html.
 * O usuário pode visualizar sua lista completa de contatos.
 * O usuário pode adicionar contatos aos grupos e eventos criados.
 * O usuário pode deletar contatos de sua lista de contatos.
+* O usuário pode deletar grupos e eventos criados.
 
 ## O que falta implementar
-* Ainda não é possível editar contatos e remover grupos e eventos, entretanto o back-end da aplicação já está preparado para receber essas implementações.
-* Ainda não existe as telas com a lista de grupos/eventos e seus participantes.
+* Ainda não é possível editar contatos, entretanto o back-end da aplicação já está preparado para receber essas implementações.
+* Ainda não é possível visualizar os participantes de um grupo ou evento, assim como alterá-los.
 * Rotina de envio de e-mail para os participantes do evento.
 
