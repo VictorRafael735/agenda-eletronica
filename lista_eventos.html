@@ -19,19 +19,19 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="index.html">Agenda Eletrônica</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#defaultDropdown"
-          aria-controls="defaultDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="defaultDropdown">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <div class="dropdown">
-              <a class="nav-link dropdown-toggle" href="index.html" role="button" id="defaultDropdown"
-                data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="index.html" role="button" id="dropdownMenuLink"
+                data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="true">
                 Contatos
               </a>
 
-              <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <li><a class="dropdown-item" href="index.html">Cadastrar Contatos</a></li>
                 <li><a class="dropdown-item" href="lista_contatos.html">Lista de Contatos</a></li>
               </ul>
@@ -61,15 +61,12 @@
       </div>
     </nav>
   </header>
-  <div class="container">
-    <title class="titulo">Criar grupos</title>
-    <div class="form-group">
-      <label for="nome_grupo" class="form-label">Nome do grupo</label>
-      <input type="text" id="nome_grupo" class="form-control" required placeholder="Nome do grupo">
-      <label for="integrante" class="form-label">Nome do participante</label>
-      <input type="text" id="integrante" class="form-control" required placeholder="Nome do participante">
-      <button class="btn btn-light" type="submit" onclick="inserirGrupo()">Enviar</button>
-    </div>
+
+  <div id="lista_eventos" class="container shadow-lg p-3 mb-5 bg-body rounded">
+    <title class="titulo">Lista de eventos</title>
+    <ul id="eventos" class="list-group">
+
+    </ul>
   </div>
   <footer class="bg-dark p-3 text-light text-center">contato: victorrafael735@gmail.com</footer>
 
@@ -89,6 +86,7 @@
     integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
     crossorigin="anonymous"></script>
   <script src="./main.js"></script>
+  <script src="./lista_eventos.js"></script>
 </body>
 
 </html>

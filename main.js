@@ -1,6 +1,8 @@
 //métodos bootstrap
-const dropdownElementList = document.querySelectorAll('.dropdown-toggle');
-const dropdownList = [...dropdownElementList].map(dropdownToggleEl => new bootstrap.Dropdown(dropdownToggleEl));
+var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+  return new bootstrap.Dropdown(dropdownToggleEl)
+})
 
 //manda contato para o back-end
 async function inserirContato() {
@@ -57,6 +59,8 @@ async function inserirEvento() {
         console.log(data)
     });
     console.log(retorno)
+    alert("Evento criado!");
+    document.location.reload();
 }
 //manda um novo grupo para o back-end
 async function inserirGrupo() {
@@ -78,9 +82,11 @@ async function inserirGrupo() {
     }).then(response => {
         return response.json();
     }).then(data => {
-        console.log(data)
+        console.log(data);
     });
-    console.log(retorno)
+    console.log(retorno);
+    alert("Grupo criado!");
+    document.location.reload();
 }
 //deleta um contato da lista de contatos
 async function deletaContatoLista(id) {
@@ -132,4 +138,39 @@ async function deletaContatoGrupo(id) {
         });
     console.log(retorno)
 }
-
+//deleta um grupo
+async function deletaGrupo(id) {
+    let url = 'http://localhost:3000/grupos/'
+    const retorno = await fetch(url + id, {
+        method: 'DELETE',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        }
+    }).then(response => response.json())
+        .then(data => {
+            console.log(data);
+        });
+    console.log(retorno)
+    alert("Grupo deletado");
+    document.location.reload();
+}
+//deleta um evento
+async function deletaEvento(id) {
+    let url = 'http://localhost:3000/eventos/'
+    const retorno = await fetch(url + id, {
+        method: 'DELETE',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        }
+    }).then(response => response.json())
+        .then(data => {
+            console.log(data);
+        });
+    console.log(retorno)
+    alert("Evento deletado");
+    document.location.reload();
+}
