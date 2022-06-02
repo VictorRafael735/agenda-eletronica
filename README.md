@@ -24,7 +24,7 @@ Primeiramente devemos instalar as dependências do projeto. Abra o terminal do V
 Devemos iniciar o servidor. Para isso abra o terminal do Visual Studio Code (ou Powershell no Windows) e digite 'npm run start'. 
 
 ### Passo 3
-Agora devemos iniciar/criar o banco de dados e migrar os modelos presentes no projeto. Para isso abra o terminal do Visual Studio Code (ou Powershell no Windows) e digite 'npx sequelize-cli db:create' e pressione enter. Após, digite 'npx sequelize-cli db:migrate', e pressione enter. Por fim, digite 'npx sequelize-cli db:seed:all', e pressione enter.
+Agora devemos iniciar/criar o banco de dados e migrar os modelos presentes no projeto. Para isso abra o terminal do Visual Studio Code (ou Powershell no Windows) e digite 'npx sequelize-cli db:create' e pressione enter. Após, digite 'npx sequelize-cli db:migrate', e pressione enter.
 
 ### Passo 4
 Abra o arquivo index.html.
