@@ -174,3 +174,4 @@ async function deletaEvento(id) {
     alert("Evento deletado");
     document.location.reload();
 }
+
