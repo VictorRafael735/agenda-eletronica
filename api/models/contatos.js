@@ -2,8 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const Contatos = sequelize.define('Contatos', {
     nome: DataTypes.STRING,
-    sobrenome: DataTypes.STRING,
-    celular: DataTypes.STRING,
+    telefone: DataTypes.STRING,
     email: DataTypes.STRING
   }, {});
 
@@ -20,8 +19,7 @@ module.exports = (sequelize, DataTypes) => {
   
   Contatos.init({
     nome: DataTypes.STRING,
-    sobrenome: DataTypes.STRING,
-    celular: DataTypes.STRING,
+    telefone: DataTypes.STRING,
     email: DataTypes.STRING,
   }, {
     sequelize,

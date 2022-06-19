@@ -15,11 +15,11 @@ async function exibeListaEventos() {
                 }
                 return 0;
             });
-        
+        console.log(lista);
         return lista.map(evento => lista_eventos.innerHTML += (`
             <li class="d-flex p-0 list-group-item bg-dark text-light border-none">
                 <div class="flex-fill p-2">${evento.nome_evento}</div> 
-                <div class="p-0 mb-0"><button type="button" class="btn btn-outline-danger btn-sm" onclick="deletaEvento(${evento.id})">Deletar</button></div> 
+                <div class="p-0 mb-0"><button type="button" class="btn btn-outline-danger btn-sm" onclick="delReq('eventos',${evento.id})">Deletar</button></div> 
                 <div class="p-0 mb-0"><button type="button" class="btn btn-outline-light btn-sm">Editar</button></div> 
             </li>`))})
 }

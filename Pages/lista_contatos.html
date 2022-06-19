@@ -7,7 +7,7 @@
   <title>Contatos</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat:wght@100;300;400&display=swap"
@@ -61,20 +61,42 @@
       </div>
     </nav>
   </header>
-  <div class="container">
-    <title class="titulo">Criar eventos</title>
-    <div class="form-group">
-      <label for="nome_evento" class="form-label">Nome do evento</label>
-      <input type="text" id="nome_evento" class="form-control" required placeholder="Nome do evento">
-      <label for="participante" class="form-label">Participante</label>
-      <input type="text" id="participante" class="form-control" required placeholder="Nome do participante">
-      <label for="data" class="form-label">Data do evento</label>
-      <input type="datetime-local" id="data" class="form-control" required>
-      <button class="btn btn-light" type="submit" onclick="inserirEvento()">Enviar</button>
-    </div>
+
+  <div id="lista_contatos" class="container shadow-lg p-3 mb-5 bg-body rounded">
+    <title class="titulo">Lista de contatos</title>
+    <ul id="contatos" class="list-group">
+
+    </ul>
   </div>
   <footer class="bg-dark p-3 text-light text-center">contato: victorrafael735@gmail.com</footer>
 
+
+  <div class="modal fade" id="ediçãoContatos" tabindex="-1" aria-labelledby="ediçãoContatos" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content bg-dark text-light ">
+        <div class="modal-header borda_especial">
+          <h5 class="modal-title" id="ediçãoContatos">Edição do Contato</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div id="editContato" class="modal-body borda_especial">
+          <div class="d-flex flex-column mb-3">
+            <label class="m-1">Nome do contato:</label>
+            <input class="m-1 form-control" type="text" id="nomeContato"/>
+            <label class="m-1 ">Telefone:</label>
+            <input class="m-1 form-control" type="tel" id="telefoneContato"/>
+            <label class="m-1">E-mail:</label>
+            <input class="m-1 form-control" type="email" id="emailContato"/>
+          </div>
+        </div>
+        <div class="modal-footer borda_especial">
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-outline-light" onclick="atualizaContato()">Salvar alterações</button>
+          <input style="display: none;" id="contatoID">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../requisições/req.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -90,7 +112,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
     integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
     crossorigin="anonymous"></script>
-  <script src="./main.js"></script>
+  <script src="../main.js"></script>
+  <script src="../Viewers/lista_contatos.js"></script>
 </body>
 
 </html>

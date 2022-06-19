@@ -22,7 +22,10 @@ body {
 .btn {
     margin-top: 20px;
 }
-
+.borda_especial{
+    border-color: black;
+    border-width: 1px;
+}
 .titulo {
     font-size: larger;
     margin: 0;
