@@ -36,9 +36,10 @@ Abra o arquivo index.html.
 * O usuário pode deletar contatos de sua lista de contatos.
 * O usuário pode deletar grupos e eventos criados.
 * As listas de contatos, grupos e eventos estão ordenadas por ordem alfabética.
+* É possível editar contatos existentes.
 
 ## O que falta implementar
-* Ainda não é possível editar contatos, entretanto o back-end da aplicação já está preparado para receber essas implementações.
 * Ainda não é possível visualizar os participantes de um grupo ou evento, assim como alterá-los.
+* Em breve será implementada a possibilidade de adicionar múltiplos contatos à grupos e eventos por meio de um seletor na tela de criação de grupos/eventos.
 * Rotina de envio de e-mail para os participantes do evento.
 
