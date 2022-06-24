@@ -1,8 +1,8 @@
 class Contato {
-    constructor() {
-        this.nome = document.getElementById('nome').value;
-        this.telefone = document.getElementById('telefone').value;
-        this.email = document.getElementById('email').value;
+    constructor(nome, telefone, email) {
+        this.nome = nome;
+        this.telefone = telefone;
+        this.email = email;
     }
 
     get cadastraContato() {

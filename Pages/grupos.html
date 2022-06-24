@@ -12,6 +12,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat:wght@100;300;400&display=swap"
     rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
 </head>
 
 <body>
@@ -64,17 +69,22 @@
   <div class="container">
     <title class="titulo">Criar grupos</title>
     <div class="form-group">
-      <label for="nome_grupo" class="form-label">Nome do grupo</label>
-      <input type="text" id="nome_grupo" class="form-control" required placeholder="Nome do grupo">
-      <label for="integrante" class="form-label">Nome do participante</label>
-      <input type="text" id="integrante" class="form-control" required placeholder="Nome do participante">
+      <label for="nome_grupo" class="form-label mt-2">Nome do grupo:</label>
+      <input type="text" id="nome_grupo" class="form-control mt-2" required placeholder="Nome do grupo">
+      <label for="integrante" class="form-label mt-2">Participante:</label>
+      <select class="form-control mt-2 seletor-contatos" aria-label="Default select example" id="integrante" multiple="">
+        <option disabled>Selecione um contato:</option>
+      </select>
       <button class="btn btn-light" type="submit" onclick="criaGrupo()">Enviar</button>
     </div>
   </div>
   <footer class="bg-dark p-3 text-light text-center">contato: victorrafael735@gmail.com</footer>
-
+  <script>
+    $(".seletor-contatos").select2();
+  </script>
   <script src="../requisições/req.js"></script>
   <script src="../Models/Grupo.js"></script>
+  <script src="../Viewers/seletor_contatos_grupo.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>

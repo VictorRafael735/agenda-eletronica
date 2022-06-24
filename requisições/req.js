@@ -1,14 +1,17 @@
+const headers = {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*'
+}
+
+const url = 'http://localhost:3000/'
+
 //requisição padrão utilizada nos POST's
-async function req(endpoint,met,obj) {
-    let url = 'http://localhost:3000/'
-    console.log("chegou")
+async function req(endpoint, met, obj) {
     const retorno = await fetch(url + endpoint, {
         method: met,
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
-        }, body: JSON.stringify(obj)
+        headers: headers,
+        body: JSON.stringify(obj)
     }).then(response => {
         return response.json();
     }).then(data => {
@@ -20,15 +23,10 @@ async function req(endpoint,met,obj) {
     return retorno;
 }
 //requisição padrão para DELETE's
-async function delReq(endpoint,id) {
-    let url = 'http://localhost:3000'
+async function delReq(endpoint, id) {
     const retorno = await fetch(`${url}/${endpoint}/${id}`, {
         method: 'DELETE',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
-        }
+        headers: headers
     }).then(response => response.json())
         .then(data => {
             console.log(data);
@@ -40,8 +38,7 @@ async function delReq(endpoint,id) {
 //Carrega as informações do contato ao abrir o modal de edição
 async function abrirModal(id) {
     console.log(id);
-    let url = `http://localhost:3000/contatos/${id}`;
-    const contato = await fetch(url)
+    const contato = await fetch(url + '/contatos/' + id)
         .then(data => data.json())
         .then(response => {
             return response;
@@ -56,13 +53,13 @@ async function abrirModal(id) {
     email.value = contato.email
     idContato.value = contato.id;
 }
-async function atualizaContato(){
+async function atualizaContato() {
     let nome = document.getElementById('nomeContato').value;
     let telefone = document.getElementById('telefoneContato').value;
     let email = document.getElementById('emailContato').value;
     let idContato = document.getElementById('contatoID').value;
     console.log(nome, idContato);
-    const novoContato = {nome, telefone, email};
+    const novoContato = { nome, telefone, email };
     try {
         await updateContato(idContato, novoContato);
     } catch (error) {
@@ -70,15 +67,10 @@ async function atualizaContato(){
     }
 }
 //altera contato no back
-updateContato = async(id, body) => {
-    let url = `http://localhost:3000/contatos/${id}`
-    const retorno = await fetch(url, {
+updateContato = async (id, body) => {
+    const retorno = await fetch(url + '/contatos/' + id, {
         method: 'PUT',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
-        }, body: JSON.stringify(body)
+        headers: headers, body: JSON.stringify(body)
     }).then(response => response.json())
         .then(data => {
             console.log(data);
