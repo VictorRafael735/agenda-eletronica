@@ -4,7 +4,8 @@ class GrupoController {
 
     //C-- Criando um registro
     static async criaGrupo (req,res) {
-        const novoGrupo = req.body;
+        let novoGrupo = [];
+        novoGrupo = novoGrupo.push(req.body);
         const contato = await database.Contatos.findOne({
             where : {
                 nome: req.body.nome_participante
