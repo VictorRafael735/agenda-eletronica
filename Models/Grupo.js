@@ -1,7 +1,7 @@
 class Grupo {
-    constructor(){
-        this.nome_grupo = document.getElementById('nome_grupo').value;
-        this.nome_participante = document.getElementById('integrante').value;
+    constructor(nome_grupo, nome_participante){
+        this.nome_grupo = nome_grupo;
+        this.nome_participante = nome_participante;
     }
     get cadastraGrupo(){
         return req('grupos', 'POST', this);

@@ -14,7 +14,7 @@ async function seletorContatos(){
                 return 0;
             });
             console.log(lista);
-            return lista.map(contato => integrante.innerHTML += (`<option>${contato.nome}</option>`))
+            return lista.map(contato => integrante.innerHTML += (`<option value="${contato.id}">${contato.nome}</option>`))
         })
 }
 

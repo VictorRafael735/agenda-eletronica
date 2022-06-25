@@ -11,7 +11,7 @@ module.exports = {
       nome_grupo: {
         type: Sequelize.STRING
       },
-      participante_id: {
+      contato_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: { model: 'Contatos', key: 'id' }

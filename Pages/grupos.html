@@ -72,7 +72,7 @@
       <label for="nome_grupo" class="form-label mt-2">Nome do grupo:</label>
       <input type="text" id="nome_grupo" class="form-control mt-2" required placeholder="Nome do grupo">
       <label for="integrante" class="form-label mt-2">Participante:</label>
-      <select class="form-control mt-2 seletor-contatos" aria-label="Default select example" id="integrante" multiple="">
+      <select class="form-control mt-2 seletor-contatos-grupos" aria-label="Default select example" id="integrante" name="nomes[]" multiple="">
         <option disabled>Selecione um contato:</option>
       </select>
       <button class="btn btn-light" type="submit" onclick="criaGrupo()">Enviar</button>
@@ -80,7 +80,7 @@
   </div>
   <footer class="bg-dark p-3 text-light text-center">contato: victorrafael735@gmail.com</footer>
   <script>
-    $(".seletor-contatos").select2();
+    $(".seletor-contatos-grupos").select2();
   </script>
   <script src="../requisições/req.js"></script>
   <script src="../Models/Grupo.js"></script>

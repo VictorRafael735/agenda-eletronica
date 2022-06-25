@@ -4,21 +4,22 @@ class GrupoController {
 
     //C-- Criando um registro
     static async criaGrupo (req,res) {
-        let novoGrupo = [];
-        novoGrupo = novoGrupo.push(req.body);
-        const contato = await database.Contatos.findOne({
-            where : {
-                nome: req.body.nome_participante
-            }
-        })
-        novoGrupo.participante_id = contato.id;
-        delete novoGrupo.nome_participante;
+        let grupos = [];
+        const novoGrupo = req.body;
+        console.log(novoGrupo)
         try {
-            const grupoCriado = await database.Grupos.create(novoGrupo);
-            return res.status(200).json(grupoCriado);
-        } catch (error){
+            for (let participante of novoGrupo.nome_participante) {
+                console.log(novoGrupo.contato_id);
+                novoGrupo.contato_id = participante;
+                const grupoCriado = await database.Grupos.create(novoGrupo);
+                grupos.push(grupoCriado.dataValues);
+            }
+            return res.status(201).json(grupos);
+        }
+        catch (error) {
             return res.status(500).json(error.message);
         }
+
     }
     
     //R-- Lendo um registro (todos)

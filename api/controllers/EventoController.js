@@ -8,14 +8,12 @@ class EventoController {
         const novoEvento = req.body;
         console.log(novoEvento)
         try {
-            for(let participante of novoEvento.nome_participante){
+            for (let participante of novoEvento.nome_participante) {
+                console.log(novoEvento.contato_id)
                 novoEvento.contato_id = participante;
-
                 const eventoCriado = await database.Eventos.create(novoEvento);
-                console.log(eventoCriado.dataValues, "criado");
                 eventos.push(eventoCriado.dataValues);
             }
-            console.log(eventos, "ola");
             return res.status(201).json(eventos);
         }
         catch (error) {

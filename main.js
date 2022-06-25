@@ -1,4 +1,4 @@
-//métodos bootstrap
+//funções bootstrap
 var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
 var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
     return new bootstrap.Dropdown(dropdownToggleEl)
@@ -14,15 +14,16 @@ function criaContato() {
     return novoContato.cadastraContato();
 }
 function criaEvento() {
-    let nome_participante = $(".seletor-contatos").val();
+    let nome_participante = $(".seletor-contatos-eventos").val();
     let nome_evento = document.getElementById('nome_evento').value;
     let data_evento = document.getElementById('data').value;
-    console.log(nome_participante);
     let novoEvento = new Evento(nome_evento, data_evento, nome_participante);
     return novoEvento.cadastraEvento();
 }
 function criaGrupo() {
-    let novoGrupo = new Grupo();
+    let nome_participante = $(".seletor-contatos-grupos").val();
+    let nome_grupo = document.getElementById('nome_grupo').value;
+    let novoGrupo = new Grupo(nome_grupo, nome_participante);
     return novoGrupo.cadastraGrupo();
 }
 

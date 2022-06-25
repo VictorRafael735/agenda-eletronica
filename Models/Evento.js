@@ -5,7 +5,6 @@ class Evento {
         this.nome_participante = nome_participante;
     }
     get cadastraEvento() {
-        console.log(this)
         return req('eventos','POST', this);
     }
 

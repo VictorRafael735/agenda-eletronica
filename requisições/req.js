@@ -16,15 +16,15 @@ async function req(endpoint, met, obj) {
         return response.json();
     }).then(data => {
         console.log(data);
-        alert("Sucesso");
-        document.location.reload();
+        // alert("Sucesso");
+        // document.location.reload();
     });
     console.log(retorno)
     return retorno;
 }
 //requisição padrão para DELETE's
 async function delReq(endpoint, id) {
-    const retorno = await fetch(`${url}/${endpoint}/${id}`, {
+    const retorno = await fetch(`${url}${endpoint}/${id}`, {
         method: 'DELETE',
         headers: headers
     }).then(response => response.json())
@@ -38,7 +38,7 @@ async function delReq(endpoint, id) {
 //Carrega as informações do contato ao abrir o modal de edição
 async function abrirModal(id) {
     console.log(id);
-    const contato = await fetch(url + '/contatos/' + id)
+    const contato = await fetch(url + 'contatos/' + id)
         .then(data => data.json())
         .then(response => {
             return response;
@@ -68,7 +68,7 @@ async function atualizaContato() {
 }
 //altera contato no back
 updateContato = async (id, body) => {
-    const retorno = await fetch(url + '/contatos/' + id, {
+    const retorno = await fetch(url + 'contatos/' + id, {
         method: 'PUT',
         headers: headers, body: JSON.stringify(body)
     }).then(response => response.json())
