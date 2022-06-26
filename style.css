@@ -17,6 +17,7 @@ body {
     box-shadow: 10px 5px 17px 1px rgba(0, 0, 0, 0.89);
     -webkit-box-shadow: 10px 5px 17px 1px rgba(0, 0, 0, 0.89);
     -moz-box-shadow: 10px 5px 17px 1px rgba(0, 0, 0, 0.89);
+    box-sizing: border-box;
 }
 
 .btn {
@@ -42,6 +43,7 @@ body {
 .btn_delete{
     display: inline;
 }
+
 .rodape {
     position: relative;
 }

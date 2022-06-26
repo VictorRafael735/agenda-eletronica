@@ -14,7 +14,7 @@
     rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+  <link href="../select2.css" rel="stylesheet" />
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
 </head>
@@ -73,14 +73,16 @@
       <input type="text" id="nome_grupo" class="form-control mt-2" required placeholder="Nome do grupo">
       <label for="integrante" class="form-label mt-2">Participante:</label>
       <select class="form-control mt-2 seletor-contatos-grupos" aria-label="Default select example" id="integrante" name="nomes[]" multiple="">
-        <option disabled>Selecione um contato:</option>
       </select>
       <button class="btn btn-light" type="submit" onclick="criaGrupo()">Enviar</button>
     </div>
   </div>
   <footer class="bg-dark p-3 text-light text-center">contato: victorrafael735@gmail.com</footer>
   <script>
-    $(".seletor-contatos-grupos").select2();
+    $(".seletor-contatos-grupos").select2({
+      placeholder: " Selecione um ou mais contatos",
+      style : "background-color: red;"
+    });
   </script>
   <script src="../requisições/req.js"></script>
   <script src="../Models/Grupo.js"></script>

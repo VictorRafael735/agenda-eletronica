@@ -35,9 +35,8 @@ async function delReq(endpoint, id) {
         });
     console.log(retorno)
 }
-//Carrega as informações do contato ao abrir o modal de edição
-async function abrirModal(id) {
-    console.log(id);
+//Carrega as informações do contato ao abrir o modal de edição de contatos
+async function abrirModalContato(id) {
     const contato = await fetch(url + 'contatos/' + id)
         .then(data => data.json())
         .then(response => {
@@ -53,19 +52,7 @@ async function abrirModal(id) {
     email.value = contato.email
     idContato.value = contato.id;
 }
-async function atualizaContato() {
-    let nome = document.getElementById('nomeContato').value;
-    let telefone = document.getElementById('telefoneContato').value;
-    let email = document.getElementById('emailContato').value;
-    let idContato = document.getElementById('contatoID').value;
-    console.log(nome, idContato);
-    const novoContato = { nome, telefone, email };
-    try {
-        await updateContato(idContato, novoContato);
-    } catch (error) {
-        console.log("Erro ao atualizar o contato", error);
-    }
-}
+
 //altera contato no back
 updateContato = async (id, body) => {
     const retorno = await fetch(url + 'contatos/' + id, {
@@ -79,4 +66,35 @@ updateContato = async (id, body) => {
     alert("Contato atualizado");
     document.location.reload();
 }
+//atualiza o contato no banco de dados ao salvar as alterações
+async function atualizaContato() {
+    let nome = document.getElementById('nomeContato').value;
+    let telefone = document.getElementById('telefoneContato').value;
+    let email = document.getElementById('emailContato').value;
+    let idContato = document.getElementById('contatoID').value;
+    console.log(nome, idContato);
+    const novoContato = { nome, telefone, email };
+    try {
+        await updateContato(idContato, novoContato);
+    } catch (error) {
+        console.log("Erro ao atualizar o contato", error);
+    }
+}
 
+//Carrega as informações do grupo ao abrir o modal de edição de grupos
+
+async function abrirModalGrupo(id) {
+    const grupo = await fetch(url + 'grupos/' + id)
+        .then(data => data.json())
+        .then(response => {
+            return response;
+        })
+    console.log(grupo);
+    let nome = document.getElementById('nomeGrupo');
+    let participante = document.getElementById('participantesGrupo')
+    let idGrupo = document.getElementById('grupoID').value;
+    nome.value = grupo.nome_grupo;
+    participante.value = grupo.contato_id;
+    idGrupo.value = grupo.id;
+    exibeListaParticipantes(id);
+}
