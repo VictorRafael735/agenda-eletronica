@@ -5,7 +5,7 @@ const headers = {
 }
 
 const url = 'http://localhost:3000/'
-
+let participantes = [];
 //requisição padrão utilizada nos POST's
 async function req(endpoint, met, obj) {
     const retorno = await fetch(url + endpoint, {
@@ -91,10 +91,40 @@ async function abrirModalGrupo(id) {
         })
     console.log(grupo);
     let nome = document.getElementById('nomeGrupo');
-    let participante = document.getElementById('participantesGrupo')
-    let idGrupo = document.getElementById('grupoID').value;
+    let idGrupo = document.getElementById('grupoID');
     nome.value = grupo.nome_grupo;
-    participante.value = grupo.contato_id;
     idGrupo.value = grupo.id;
-    exibeListaParticipantes(id);
+    participantes = grupo.contatos;
+    console.log(grupo.contatos);
+    exibeListaParticipantes(grupo.contatos);
+}
+// retira o participante do grupo, sem salvar as alterações
+function retiraParticipantes(id) {
+    participantes = participantes.filter(elemento => elemento.id != id);
+    exibeListaParticipantes(participantes);
+}
+
+//atualiza o registrod o grupo no back-end
+async function atualizaGrupo() {
+    let nome_grupo = document.getElementById('nomeGrupo').value;
+    let grupoID = document.getElementById('grupoID').value;
+    const novoGrupo = { nome_grupo };
+    try {
+        await updateGrupo(grupoID, novoGrupo);
+    } catch (error) {
+        console.log("Erro ao atualizar o grupo", error);
+    }
+}
+updateGrupo = async (id, body) => {
+    body.contatos = participantes.map(elemento => elemento.id);
+    const retorno = await fetch(url + 'grupos/' + id, {
+        method: 'PUT',
+        headers: headers, body: JSON.stringify(body)
+    }).then(response => response.json())
+        .then(data => {
+            console.log(data);
+        });
+    console.log(retorno)
+    alert("Grupo atualizado");
+    document.location.reload();
 }

@@ -12,6 +12,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat:wght@100;300;400&display=swap"
     rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <link href="../select2.css" rel="stylesheet" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
 </head>
 
 <body>
@@ -80,25 +84,36 @@
           <div class="d-flex flex-column mb-3">
             <label class="m-1">Nome do grupo:</label>
             <input class="m-1 form-control" type="text" id="nomeGrupo" />
-            <label class="m-1 ">Participantes:</label>
-            <div id="participantesGrupo" class="shadow-lg p-3 mb-5 bg-body rounded">
+            <label class="m-1 ">Participantes:<button type="button" id="adicionaParticipante"
+                title="Adicionar participante" class="btn btn-outline-light btn-sm"
+                onclick="adicionaParticipante()">+</button></label>
+            <select class="form-control mt-2 seletor-edit-grupos" aria-label="Default select example" id="integrante"
+              name="nomes[]" multiple="">
+            </select>
+            <div class="shadow-lg p-3 mb-5 bg-body rounded">
               <ul id="contatos" class="list-group">
-          
+
               </ul>
             </div>
           </div>
         </div>
         <div class="modal-footer borda_especial">
           <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
-          <button type="button" class="btn btn-outline-light" onclick="">Salvar alterações</button>
+          <button type="button" class="btn btn-outline-light" onclick="atualizaGrupo()">Salvar alterações</button>
           <input style="display: none;" id="grupoID">
         </div>
       </div>
     </div>
   </div>
+  <script>
+    $(".seletor-edit-grupos").select2({
+      placeholder: " Selecione um ou mais contatos",
+    });
+  </script>
   <script src="../requisições/req.js"></script>
-  <script src="../Viewers/lista_contatos.js"></script>
   <script src="../Viewers/lista_participantes.js"></script>
+  <script src="../Viewers/seletor_contatos_grupo.js"></script>
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>

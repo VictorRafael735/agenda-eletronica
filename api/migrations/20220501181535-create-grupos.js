@@ -11,11 +11,6 @@ module.exports = {
       nome_grupo: {
         type: Sequelize.STRING
       },
-      contato_id: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: { model: 'Contatos', key: 'id' }
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

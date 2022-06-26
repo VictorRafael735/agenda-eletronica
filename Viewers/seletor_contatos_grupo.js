@@ -18,11 +18,5 @@ async function seletorContatos(){
         })
 }
 
-function selecionarContato(element){
-    console.log(element)
-}
-
-
-
 seletorContatos();
 

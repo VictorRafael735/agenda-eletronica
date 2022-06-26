@@ -25,6 +25,15 @@ fs
     db[model.name] = model;
   });
 
+  sequelize
+  .sync()
+  .then(() => {
+    console.log('MYSQL conectado com sucesso')
+  })
+  .catch((err) => {
+    console.log('Failed to sync db: ' + err.message)
+  });
+
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
     db[modelName].associate(db);
@@ -33,5 +42,17 @@ Object.keys(db).forEach(modelName => {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+db.contatos = require('./contatos')(sequelize, Sequelize);
+db.grupos = require('./grupos')(sequelize,Sequelize);
+db.grupos.belongsToMany(db.contatos, {
+  foreignKey: 'grupoID',
+  through: 'GrupoContatos',
+  as: 'contatos'
+});
+db.contatos.belongsToMany(db.grupos, {
+  foreignKey: 'contatoID',
+  through: 'GrupoContatos',
+  as: 'grupos'
+});
 
 module.exports = db;
