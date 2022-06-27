@@ -18,7 +18,7 @@ grupos de contatos, e criação de eventos , como teste para uma vaga de desenvo
 
 ## Como Utilizar
 ### Passo 1
-Primeiramente devemos instalar as dependências do projeto. Abra o terminal do Visual Studio Code (ou Powershell no Windows) e digite 'npm i express cors mysql2 sequelize-cli nodemon' e pressione enter.
+Primeiramente devemos instalar as dependências do projeto. Abra o terminal do Visual Studio Code (ou Powershell no Windows) e digite 'npm i' e pressione enter.
 
 ### Passo 2
 Devemos iniciar o servidor. Para isso abra o terminal do Visual Studio Code (ou Powershell no Windows) e digite 'npm run start'. 
