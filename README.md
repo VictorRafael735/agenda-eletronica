@@ -38,6 +38,7 @@ Abra o arquivo index.html.
 * As listas de contatos, grupos e eventos estão ordenadas por ordem alfabética.
 * É possível editar contatos existentes.
 * É possível adicionar múltiplos contatos à grupos e eventos.
+* É possível visualizar os participantes de um grupo e alterá-los.
 
 ## O que falta implementar
 * Ainda não é possível visualizar os participantes de um evento, assim como alterá-los.
