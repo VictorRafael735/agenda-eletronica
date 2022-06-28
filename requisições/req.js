@@ -108,7 +108,9 @@ function retiraParticipantes(id) {
 async function atualizaGrupo() {
     let nome_grupo = document.getElementById('nomeGrupo').value;
     let grupoID = document.getElementById('grupoID').value;
-    const novoGrupo = { nome_grupo };
+    let nome_participante = $(".seletor-edit-grupos").val();
+    const novoGrupo = { nome_grupo, nome_participante };
+    console.log(nome_participante)
     try {
         await updateGrupo(grupoID, novoGrupo);
     } catch (error) {

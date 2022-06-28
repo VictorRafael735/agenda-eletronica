@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contatos</title>
+  <link rel="stylesheet" href="../reset.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="../style.css">
@@ -84,13 +85,12 @@
           <div class="d-flex flex-column mb-3">
             <label class="m-1">Nome do grupo:</label>
             <input class="m-1 form-control" type="text" id="nomeGrupo" />
-            <label class="m-1 ">Participantes:<button type="button" id="adicionaParticipante"
-                title="Adicionar participante" class="btn btn-outline-light btn-sm"
-                onclick="adicionaParticipante()">+</button></label>
+            <label class="m-1 " for="integrante">Adicionar participantes:</label>
             <select class="form-control mt-2 seletor-edit-grupos" aria-label="Default select example" id="integrante"
               name="nomes[]" multiple="">
             </select>
-            <div class="shadow-lg p-3 mb-5 bg-body rounded">
+            <div class="p-3 mb-5">
+              <label class="m-1 " for="contatos">Participantes:</label>
               <ul id="contatos" class="list-group">
 
               </ul>
@@ -107,7 +107,7 @@
   </div>
   <script>
     $(".seletor-edit-grupos").select2({
-      placeholder: " Selecione um ou mais contatos",
+      placeholder: "Adicionar",
     });
   </script>
   <script src="../requisições/req.js"></script>

@@ -13,6 +13,7 @@ function criaContato() {
     let novoContato = new Contato(nome, telefone, email);
     return novoContato.cadastraContato();
 }
+//cria um evento e o cadastra no back-end
 function criaEvento() {
     let nome_participante = $(".seletor-contatos-eventos").val();
     let nome_evento = document.getElementById('nome_evento').value;
@@ -20,6 +21,7 @@ function criaEvento() {
     let novoEvento = new Evento(nome_evento, data_evento, nome_participante);
     return novoEvento.cadastraEvento();
 }
+//cria um grupo e o cadastra no back-end
 function criaGrupo() {
     let nome_participante = $(".seletor-contatos-grupos").val();
     let nome_grupo = document.getElementById('nome_grupo').value;

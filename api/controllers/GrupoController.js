@@ -71,7 +71,7 @@ class GrupoController {
     static async atualizaGrupo(req, res) {
         const { id } = req.params;
         const atualizaInfoGrupo = req.body;
-        console.log(atualizaInfoGrupo)
+        let contatos = atualizaInfoGrupo.nome_participante;
         try {
             await database.grupos.update(atualizaInfoGrupo, {
                 where: {
@@ -84,7 +84,7 @@ class GrupoController {
                 }
             })
             if (atualizaInfoGrupo.contatos) {
-                grupoAtualizado.setContatos(atualizaInfoGrupo.contatos);
+                grupoAtualizado.setContatos(contatos);
             }
             return res.status(200).json(grupoAtualizado);
         } catch (error) {
