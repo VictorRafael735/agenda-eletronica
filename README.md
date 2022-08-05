@@ -1,4 +1,4 @@
-# Agena Eletrônica Web
+# Agenda Eletrônica Web
 
 ## Sobre
 Esta é uma aplicação web desenvolvida por mim, de uma agenda eletrônica na qual possui uma tela de cadastro de contatos, 
